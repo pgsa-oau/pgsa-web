@@ -3,8 +3,12 @@
 
 const nextConfig = {
     images: {
-        domains: ["fakeimg.pl"],
+        // allow the use of images from my public folder
+        domains: ["fakeimg.pl", "localhost", ],
     },
+    reactStrictMode: true,
+    distDir: 'dist',
+    // output: 'export',
 };
 
 export default nextConfig;

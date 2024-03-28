@@ -20,19 +20,15 @@ const CarouselSection = () => {
     return (
         <Carousel className="w-full" plugins={[plugin.current]}>
             <CarouselContent className="w-11/12">
-                {Array.from({ length: 5 }).map((_, index) => (
+                {Array.from({ length: 12 }).map((_, index) => (
                     <CarouselItem key={index}>
                         <div className="p-2">
-                            <Card className="h-[30rem] w-full flex items-center justify-center">
-                                <CardContent className="flex items-center justify-center p-6">
-                                    <Image
-                                        src={`https://fakeimg.pl/600x400?text=image${
-                                            index + 1
-                                        }`}
-                                        alt={`image${index + 1}`}
-                                        fill
-                                    />
-                                </CardContent>
+                            <Card className="h-[32rem] w-full flex items-center justify-center">
+                                <img
+                                    src={`/images/${index + 1}.jpg`}
+                                    alt={`image${index + 1}`}
+                                    className="w-full h-full object-cover rounded-md"
+                                />
                             </Card>
                         </div>
                     </CarouselItem>

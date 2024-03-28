@@ -13,6 +13,7 @@ import {
     NavigationMenuViewport,
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
+import Image from "next/image";
 
 const navigationItems = [
     {
@@ -76,7 +77,20 @@ const navigationItems = [
 const Header = () => {
     return (
         <div className="flex items-center justify-between px-24 py-5">
-            <div className="font-bold">OAU PGSA</div>
+            <div className="flex gap-1 items-center justify-center">
+                <div className="avatar">
+                    <div className="rounded-full w-8">
+                        <img src="/oau.png" />
+                    </div>
+                </div>
+                <div className="avatar">
+                    <div className="rounded-full w-8">
+                        <img src="/pgsa.png" />
+                    </div>
+                </div>
+
+                <div className="font-bold">OAU PGSA</div>
+            </div>
             <NavigationMenu>
                 <NavigationMenuList>
                     {navigationItems.map((item) => (
