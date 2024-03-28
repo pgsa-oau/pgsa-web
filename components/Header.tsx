@@ -24,15 +24,15 @@ const navigationItems = [
     },
     {
         title: "Notice Board",
-        href: "",
+        href: "/board",
     },
     {
         title: "Policies",
-        href: "",
+        href: "/policies",
     },
     {
         title: "Resources",
-        href: "",
+        href: "/resources",
     },
     {
         title: "Membership",
