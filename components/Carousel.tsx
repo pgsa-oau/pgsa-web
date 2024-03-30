@@ -12,7 +12,6 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel";
 import { useRef } from "react";
-import Image from "next/image";
 
 const CarouselSection = () => {
     const plugin = useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
@@ -23,7 +22,7 @@ const CarouselSection = () => {
                 {Array.from({ length: 12 }).map((_, index) => (
                     <CarouselItem key={index}>
                         <div className="p-2">
-                            <Card className="h-[32rem] w-full flex items-center justify-center">
+                            <Card className="h-[10rem] md:h-[32rem] w-full flex items-center justify-center">
                                 <img
                                     src={`/images/${index + 1}.jpg`}
                                     alt={`image${index + 1}`}
@@ -34,8 +33,8 @@ const CarouselSection = () => {
                     </CarouselItem>
                 ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            <CarouselPrevious className="hidden md:flex" />
+            <CarouselNext className="hidden md:flex" />
         </Carousel>
     );
 };

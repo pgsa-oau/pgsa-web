@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
 
 import emailjs from "@emailjs/browser";
 import { useState } from "react";
@@ -111,10 +112,7 @@ const ContactUs = () => {
                             <FormItem>
                                 <FormLabel>Message</FormLabel>
                                 <FormControl>
-                                    <Input
-                                        placeholder="your message"
-                                        {...field}
-                                    />
+                                    <Textarea placeholder="Type your message here." {...field} />
                                 </FormControl>
                                 <FormDescription>
                                     Type in your message.
@@ -124,13 +122,12 @@ const ContactUs = () => {
                         )}
                     />
 
-                    {feedback && (
-                            feedbackType === "success" ? (
-                                <div className="text-green-500">{feedback}</div>
-                            ) : (
-                                <div className="text-red-500">{feedback}</div>
-                            )
-                    )}
+                    {feedback &&
+                        (feedbackType === "success" ? (
+                            <div className="text-green-500">{feedback}</div>
+                        ) : (
+                            <div className="text-red-500">{feedback}</div>
+                        ))}
 
                     <Button type="submit">Submit</Button>
                 </form>
