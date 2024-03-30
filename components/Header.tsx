@@ -17,10 +17,7 @@ import Link from "next/link";
 const navigationItems = [
     {
         title: "About",
-        links: [
-            { href: "/about/preamble", text: "Preamble" },
-            { href: "/about/aims-and-objectives", text: "Aims and Objectives" },
-        ],
+        href: "/#aboutUs",
     },
     {
         title: "Notice Board",
@@ -69,7 +66,7 @@ const navigationItems = [
     },
     {
         title: "Contact Us",
-        href: "/contact-us",
+        href: "/#contactUs",
     },
 ];
 
@@ -97,20 +94,6 @@ const Header = () => {
                 <div className="font-bold">OAU PGSA</div>
             </div>
 
-            <div className="md:hidden">
-                <button onClick={toggleMenu}>
-                    <img src="/hamburger-icon.png" alt="Menu" />
-                </button>
-            </div>
-
-            <div
-                className={`fixed top-0 left-0 w-full h-full bg-white transform transition-transform duration-200 ease-in-out ${
-                    isOpen ? "translate-x-0" : "-translate-x-full"
-                } md:relative md:translate-x-0 md:flex`}
-            >
-                <button onClick={toggleMenu} className="md:hidden">
-                    <img src="/close-icon.png" alt="Close" />
-                </button>
 
                 <NavigationMenu>
                     <NavigationMenuList>
@@ -154,7 +137,6 @@ const Header = () => {
                         ))}
                     </NavigationMenuList>
                 </NavigationMenu>
-            </div>
         </div>
     );
 };

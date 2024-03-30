@@ -13,10 +13,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     buttonText,
 }) => {
     return (
-        <div className="hero bg-base-200">
-            <div className="hero-content text-center">
-                <div className="max-w-xl">
-                    <h1 className="text-xl font-bold">{title}</h1>
+        <div className="hero">
+            <div className="hero-content">
+                <div className="max-w-5xl">
+                    <h1 className="text-xl font-bold text-center">{title}</h1>
                     <p className="py-6">{description}</p>
                     {buttonText && (
                         <Button>{buttonText}</Button>
