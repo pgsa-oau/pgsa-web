@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import {
     NavigationMenu,
     NavigationMenuContent,
@@ -13,7 +13,6 @@ import {
     NavigationMenuViewport,
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
-import Image from "next/image";
 
 const navigationItems = [
     {
@@ -75,6 +74,12 @@ const navigationItems = [
 ];
 
 const Header = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    };
+
     return (
         <div className="flex items-center justify-between px-24 py-5">
             <div className="flex gap-1 items-center justify-center">
@@ -91,44 +96,65 @@ const Header = () => {
 
                 <div className="font-bold">OAU PGSA</div>
             </div>
-            <NavigationMenu>
-                <NavigationMenuList>
-                    {navigationItems.map((item) => (
-                        <NavigationMenuItem key={item.title}>
-                            {item.links ? (
-                                <>
-                                    <NavigationMenuTrigger>
-                                        {item.title}
-                                    </NavigationMenuTrigger>
-                                    <NavigationMenuContent className="flex flex-col w-[400px] gap-3 p-4 md:w-[500px] lg:w-[600px]">
-                                        {item.links.map((link) => (
-                                            <Link
-                                                href={link.href}
-                                                passHref
-                                                key={link.text}
-                                            >
-                                                <NavigationMenuLink
-                                                    className={navigationMenuTriggerStyle()}
+
+            <div className="md:hidden">
+                <button onClick={toggleMenu}>
+                    <img src="/hamburger-icon.png" alt="Menu" />
+                </button>
+            </div>
+
+            <div
+                className={`fixed top-0 left-0 w-full h-full bg-white transform transition-transform duration-200 ease-in-out ${
+                    isOpen ? "translate-x-0" : "-translate-x-full"
+                } md:relative md:translate-x-0 md:flex`}
+            >
+                <button onClick={toggleMenu} className="md:hidden">
+                    <img src="/close-icon.png" alt="Close" />
+                </button>
+
+                <NavigationMenu>
+                    <NavigationMenuList>
+                        {navigationItems.map((item) => (
+                            <NavigationMenuItem key={item.title}>
+                                {item.links ? (
+                                    <>
+                                        <NavigationMenuTrigger>
+                                            {item.title}
+                                        </NavigationMenuTrigger>
+                                        <NavigationMenuContent className="flex flex-col w-[400px] gap-3 p-4 md:w-[500px] lg:w-[600px]">
+                                            {item.links.map((link) => (
+                                                <Link
+                                                    href={link.href}
+                                                    passHref
+                                                    key={link.text}
                                                 >
-                                                    {link.text}
-                                                </NavigationMenuLink>
-                                            </Link>
-                                        ))}
-                                    </NavigationMenuContent>
-                                </>
-                            ) : (
-                                <Link href={item.href} legacyBehavior passHref>
-                                    <NavigationMenuLink
-                                        className={navigationMenuTriggerStyle()}
+                                                    <NavigationMenuLink
+                                                        className={navigationMenuTriggerStyle()}
+                                                    >
+                                                        {link.text}
+                                                    </NavigationMenuLink>
+                                                </Link>
+                                            ))}
+                                        </NavigationMenuContent>
+                                    </>
+                                ) : (
+                                    <Link
+                                        href={item.href}
+                                        legacyBehavior
+                                        passHref
                                     >
-                                        {item.title}
-                                    </NavigationMenuLink>
-                                </Link>
-                            )}
-                        </NavigationMenuItem>
-                    ))}
-                </NavigationMenuList>
-            </NavigationMenu>
+                                        <NavigationMenuLink
+                                            className={navigationMenuTriggerStyle()}
+                                        >
+                                            {item.title}
+                                        </NavigationMenuLink>
+                                    </Link>
+                                )}
+                            </NavigationMenuItem>
+                        ))}
+                    </NavigationMenuList>
+                </NavigationMenu>
+            </div>
         </div>
     );
 };
