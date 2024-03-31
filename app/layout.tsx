@@ -23,14 +23,16 @@ export default function RootLayout({
 }>) {
   return (
       <html lang="en" suppressHydrationWarning>
-          <body
-              className={cn(
-                  "md:container p-1 min-h-screen bg-background font-sans antialiased",
-                  fontSans.variable
-              )}
-          >
+          <body>
               <Header />
-              {children}
+              <div
+                  className={cn(
+                      "md:container p-1 min-h-screen font-sans antialiased",
+                      fontSans.variable
+                  )}
+              >
+                  {children}
+              </div>
           </body>
       </html>
   );

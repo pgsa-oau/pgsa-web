@@ -5,28 +5,49 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion";
 
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card";
+
 import { pageData } from "./pageData";
 
 const AimsAndObjectives = () => {
     return (
-        <div className="max-w-6xl">
-            <h1 className="text-xl font-bold text-center pb-6 text-primary">
-                Aims and objectives
-            </h1>
-            <p>{pageData.aimsAndObjectives.title}</p>
-            <Accordion type="single" collapsible className="w-full">
-            {pageData.aimsAndObjectives.aims.map((aim) => (
-                    <AccordionItem className="py-1" key={aim.id} value={`${aim.id}`}>
-                        <AccordionTrigger className="text-left">{aim.description}</AccordionTrigger>
-                        <AccordionContent>
-                            {aim.text}
-                        </AccordionContent>
-                    </AccordionItem>
-            ))}
+        <Card className="shadow-lg md:font-medium">
+            <CardHeader>
+                <CardTitle className="font-extrabold text-transparent text-xl bg-clip-text bg-gradient-to-r from-violet-600 to-pink-400">
+                    Aims and objectives
+                </CardTitle>
+            </CardHeader>
 
-             </Accordion>
-            <p className="py-4">{pageData.aimsAndObjectives.extraText}</p>
-        </div>
+            <CardContent>
+                <CardDescription>
+                    {pageData.aimsAndObjectives.title}
+                </CardDescription>
+                <Accordion type="single" collapsible className="w-full pb-4">
+                    {pageData.aimsAndObjectives.aims.map((aim) => (
+                        <AccordionItem
+                            className="py-1"
+                            key={aim.id}
+                            value={`${aim.id}`}
+                        >
+                            <AccordionTrigger className="text-left">
+                                {aim.description}
+                            </AccordionTrigger>
+                            <AccordionContent>{aim.text}</AccordionContent>
+                        </AccordionItem>
+                    ))}
+                </Accordion>
+
+                <CardDescription>
+                    {pageData.aimsAndObjectives.extraText}
+                </CardDescription>
+            </CardContent>
+        </Card>
     );
 };
 

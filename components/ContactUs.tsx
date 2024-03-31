@@ -6,7 +6,6 @@ import { useForm } from "react-hook-form";
 import {
     Form,
     FormControl,
-    FormDescription,
     FormField,
     FormItem,
     FormLabel,
@@ -15,6 +14,12 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import {
+    Card,
+    CardContent,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card";
 
 import emailjs from "@emailjs/browser";
 import { useState } from "react";
@@ -40,8 +45,8 @@ const ContactUs = () => {
 
     function onSubmit(values: z.infer<typeof formSchema>) {
         emailjs
-            .send('service_4aav2wz', 'template_v3r9w5d', values, {
-                publicKey: 'NF3T84lHdWPXpR3zP',
+            .send("service_4aav2wz", "template_v3r9w5d", values, {
+                publicKey: "NF3T84lHdWPXpR3zP",
             })
             .then(
                 () => {
@@ -57,82 +62,84 @@ const ContactUs = () => {
     }
 
     return (
-        <section className="w-full p-2">
-            <h2 className="text-center font-bold text-primary">Contact Us</h2>
+        <Card>
+            <CardHeader>
+                <CardTitle className="font-extrabold text-transparent text-xl bg-clip-text bg-gradient-to-r from-violet-600 to-pink-400">
+                    Reach out to us today!
+                </CardTitle>
+            </CardHeader>
 
-            <Form {...form}>
-                <form
-                    onSubmit={form.handleSubmit(onSubmit)}
-                    className="space-y-5 w-full max-w-lg mx-auto"
-                >
-                    <FormField
-                        control={form.control}
-                        name="name"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>Name</FormLabel>
-                                <FormControl>
-                                    <Input
-                                        placeholder="first name last name"
-                                        {...field}
-                                    />
-                                </FormControl>
-                                <FormDescription>
-                                    This is your name.
-                                </FormDescription>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
+            <CardContent>
+                <Form {...form}>
+                    <form
+                        onSubmit={form.handleSubmit(onSubmit)}
+                        className="space-y-3"
+                    >
+                        <div className="flex flex-col md:flex-row gap-4">
+                            <FormField
+                                control={form.control}
+                                name="name"
+                                render={({ field }) => (
+                                    <FormItem className="w-full">
+                                        <FormLabel>Name</FormLabel>
+                                        <FormControl>
+                                            <Input
+                                                placeholder="first name last name"
+                                                {...field}
+                                            />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
 
-                    <FormField
-                        control={form.control}
-                        name="email"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>Email</FormLabel>
-                                <FormControl>
-                                    <Input
-                                        placeholder="youremail@email.com"
-                                        {...field}
-                                    />
-                                </FormControl>
-                                <FormDescription>
-                                    This is your email.
-                                </FormDescription>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
+                            <FormField
+                                control={form.control}
+                                name="email"
+                                render={({ field }) => (
+                                    <FormItem className="w-full">
+                                        <FormLabel>Email</FormLabel>
+                                        <FormControl>
+                                            <Input
+                                                placeholder="youremail@email.com"
+                                                {...field}
+                                            />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                        </div>
 
-                    <FormField
-                        control={form.control}
-                        name="message"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>Message</FormLabel>
-                                <FormControl>
-                                    <Textarea placeholder="Type your message here." {...field} />
-                                </FormControl>
-                                <FormDescription>
-                                    Type in your message.
-                                </FormDescription>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
+                        <FormField
+                            control={form.control}
+                            name="message"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Message</FormLabel>
+                                    <FormControl>
+                                        <Textarea
+                                            placeholder="Type your message here."
+                                            {...field}
+                                        />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
 
-                    {feedback &&
-                        (feedbackType === "success" ? (
-                            <div className="text-green-500">{feedback}</div>
-                        ) : (
-                            <div className="text-red-500">{feedback}</div>
-                        ))}
+                        {feedback &&
+                            (feedbackType === "success" ? (
+                                <div className="text-green-500">{feedback}</div>
+                            ) : (
+                                <div className="text-red-500">{feedback}</div>
+                            ))}
 
-                    <Button type="submit">Submit</Button>
-                </form>
-            </Form>
-        </section>
+                        <Button type="submit">Submit</Button>
+                    </form>
+                </Form>
+            </CardContent>
+        </Card>
     );
 };
 

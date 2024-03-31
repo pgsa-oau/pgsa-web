@@ -75,9 +75,10 @@ const Header = () => {
         setIsOpen(!isOpen);
     };
 
+
     return (
-        <>
-            <div className="flex items-center justify-between md:px-24 p-2 md:py-3 bg-background">
+        <nav className="bg-background p-2 md:py-3 font-sans">
+            <div className="md:container flex items-center justify-between">
                 <Link href="/" passHref>
                     <div className="flex gap-1 items-center justify-center">
                         <div className="avatar hidden md:flex">
@@ -92,7 +93,9 @@ const Header = () => {
                             </div>
                         </div>
 
-                        <div className="font-bold">OAU PGSA</div>
+                        <div className="font-extrabold text-transparent text-xl bg-clip-text bg-gradient-to-r from-violet-600 to-pink-500">
+                            OAU PGSA
+                        </div>
                     </div>
                 </Link>
 
@@ -194,7 +197,7 @@ const Header = () => {
                     </NavigationMenu>
                 </div>
             )}
-        </>
+        </nav>
     );
 };
 

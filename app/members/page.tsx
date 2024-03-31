@@ -8,13 +8,13 @@ const MembersPage = () => {
         </div>
 
 
-          <section className="min-h-[95vh] flex flex-col items-center align-middle justify-center">
+          <section className="min-h-[95vh] flex flex-col items-center align-middle justify-center text-slate-100 font-bold text-lg">
               <p>Members of the PGSA</p>
           </section>
 
           <section
               id="honorary-members"
-              className="min-h-[95vh] flex flex-col items-center align-middle justify-center"
+              className="min-h-[95vh] flex flex-col items-center align-middle justify-center text-slate-100 font-bold text-lg"
           >
               <p>Honorary Members of the PGSA</p>
           </section>
