@@ -9,15 +9,15 @@ import { pageData } from "./pageData";
 
 const AimsAndObjectives = () => {
     return (
-        <div className="max-w-5xl">
-            <h1 className="text-xl font-bold text-center pb-6">
+        <div className="max-w-6xl">
+            <h1 className="text-xl font-bold text-center pb-6 text-primary">
                 Aims and objectives
             </h1>
             <p>{pageData.aimsAndObjectives.title}</p>
             <Accordion type="single" collapsible className="w-full">
             {pageData.aimsAndObjectives.aims.map((aim) => (
-                    <AccordionItem key={aim.id} value={`${aim.id}`}>
-                        <AccordionTrigger>{aim.description}</AccordionTrigger>
+                    <AccordionItem className="py-1" key={aim.id} value={`${aim.id}`}>
+                        <AccordionTrigger className="text-left">{aim.description}</AccordionTrigger>
                         <AccordionContent>
                             {aim.text}
                         </AccordionContent>

@@ -57,8 +57,8 @@ const ContactUs = () => {
     }
 
     return (
-        <section className="w-full">
-            <h2 className="text-center font-bold">Contact Us</h2>
+        <section className="w-full p-2">
+            <h2 className="text-center font-bold text-primary">Contact Us</h2>
 
             <Form {...form}>
                 <form

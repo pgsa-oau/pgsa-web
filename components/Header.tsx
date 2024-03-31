@@ -4,16 +4,13 @@ import React, { useState } from "react";
 import {
     NavigationMenu,
     NavigationMenuContent,
-    NavigationMenuIndicator,
     NavigationMenuItem,
     NavigationMenuLink,
     NavigationMenuList,
     NavigationMenuTrigger,
     navigationMenuTriggerStyle,
-    NavigationMenuViewport,
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
-import { Button } from "./ui/button";
 
 const navigationItems = [
     {
@@ -25,8 +22,8 @@ const navigationItems = [
         href: "/board",
     },
     {
-        title: "Policies",
-        href: "/policies",
+        title: "Gallery",
+        href: "/gallery",
     },
     {
         title: "Resources",
@@ -36,31 +33,31 @@ const navigationItems = [
         title: "Membership",
         links: [
             {
-                href: "/membership/postgraduate-registration",
-                text: "Postgraduate Registration",
+                href: "https://docs.google.com/forms/d/e/1FAIpQLSe1_rMRH4gPIi-JonVGVC7mlXf_1dnv6Vwy0Dn6LMoa2OubCQ/viewform?usp=sf_link",
+                text: "Become a Member",
             },
-            { href: "/membership/members", text: "Members" },
-            { href: "/membership/honorary-member", text: "Honorary Member" },
+            { href: "/members", text: "Members" },
+            { href: "/members#honorary-members", text: "Honorary Member" },
         ],
     },
     {
-        title: "Arms",
+        title: "Leadership",
         links: [
-            { href: "/arms/departmental-pgsa", text: "Departmental PGSA" },
+            { href: "/leadership/departmental-pgsa", text: "Departmental PGSA" },
             {
-                href: "/arms/hall-hec",
+                href: "/leadership/hall-hec",
                 text: "Halls of Residence (meet your HEC)",
             },
             {
-                href: "/arms/legislature",
+                href: "/leadership/legislature",
                 text: "The Legislature (meet your Students’ Parliamentary Council)",
             },
             {
-                href: "/arms/administrative-quarters",
+                href: "/leadership/administrative-quarters",
                 text: "Administrative Quarters (meet your Central Executive Council)",
             },
             {
-                href: "/arms/judicial-quarter",
+                href: "/leadership/judicial-quarter",
                 text: "The Judicial Quarter (Meet the Judicial Council)",
             },
         ],
@@ -80,7 +77,7 @@ const Header = () => {
 
     return (
         <>
-            <div className="flex items-center justify-between md:px-24 py-2 md:py-5">
+            <div className="flex items-center justify-between md:px-24 p-2 md:py-3 bg-background">
                 <Link href="/" passHref>
                     <div className="flex gap-1 items-center justify-center">
                         <div className="avatar hidden md:flex">
@@ -169,6 +166,7 @@ const Header = () => {
                                                     >
                                                         <NavigationMenuLink
                                                             className={`${navigationMenuTriggerStyle()} bg-transparent hover:bg-violet-300 text-wrap`}
+                                                            onClick={toggleMenu}
                                                         >
                                                             {link.text}
                                                         </NavigationMenuLink>
@@ -184,6 +182,7 @@ const Header = () => {
                                         >
                                             <NavigationMenuLink
                                                 className={`${navigationMenuTriggerStyle()} bg-transparent hover:bg-violet-300 text-sm text-wrap`}
+                                                onClick={toggleMenu}
                                             >
                                                 {item.title}
                                             </NavigationMenuLink>
