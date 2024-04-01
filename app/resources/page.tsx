@@ -42,7 +42,7 @@ const Resources = () => {
                     </CardHeader>
                     <CardContent className="space-y-4">
                         <CardDescription>
-                            For admission related information don't hesitate to check the PG college website: {" "}
+                            For admission related information don&apos;t hesitate to check the PG college website: {" "}
                             <Link
                                 href={"http://netque.oauife.edu.ng/"}
                                 target="_blank"
