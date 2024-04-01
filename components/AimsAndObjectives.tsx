@@ -20,7 +20,7 @@ const AimsAndObjectives = () => {
         <Card className="shadow-lg md:font-medium">
             <CardHeader>
                 <CardTitle className="font-extrabold text-transparent text-xl bg-clip-text bg-gradient-to-r from-violet-600 to-pink-400">
-                    Aims and objectives
+                    Vision
                 </CardTitle>
             </CardHeader>
 
@@ -35,10 +35,10 @@ const AimsAndObjectives = () => {
                             key={aim.id}
                             value={`${aim.id}`}
                         >
-                            <AccordionTrigger className="text-left">
+                            <AccordionTrigger className="text-left hover:no-underline text-sm font-medium text-slate-700">
                                 {aim.description}
                             </AccordionTrigger>
-                            <AccordionContent>{aim.text}</AccordionContent>
+                            <AccordionContent className="text-sm text-slate-500">{aim.text}</AccordionContent>
                         </AccordionItem>
                     ))}
                 </Accordion>

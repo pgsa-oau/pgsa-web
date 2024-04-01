@@ -11,6 +11,12 @@ import {
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const navigationItems = [
     {
@@ -35,6 +41,7 @@ const navigationItems = [
             {
                 href: "https://docs.google.com/forms/d/e/1FAIpQLSe1_rMRH4gPIi-JonVGVC7mlXf_1dnv6Vwy0Dn6LMoa2OubCQ/viewform?usp=sf_link",
                 text: "Become a Member",
+                target: "_blank",
             },
             { href: "/members", text: "Members" },
             { href: "/members#honorary-members", text: "Honorary Member" },
@@ -43,7 +50,10 @@ const navigationItems = [
     {
         title: "Leadership",
         links: [
-            { href: "/leadership/departmental-pgsa", text: "Departmental PGSA" },
+            {
+                href: "/leadership/departmental-pgsa",
+                text: "Departmental PGSA",
+            },
             {
                 href: "/leadership/hall-hec",
                 text: "Halls of Residence (meet your HEC)",
@@ -75,13 +85,12 @@ const Header = () => {
         setIsOpen(!isOpen);
     };
 
-
     return (
         <nav className="bg-background p-2 md:py-3 font-sans">
             <div className="md:container flex items-center justify-between">
                 <Link href="/" passHref>
                     <div className="flex gap-1 items-center justify-center">
-                        <div className="avatar hidden md:flex">
+                        <div className="avatar hidden lg:flex">
                             <div className="rounded-full w-6">
                                 <img src="/oau.png" />
                             </div>
@@ -93,13 +102,13 @@ const Header = () => {
                             </div>
                         </div>
 
-                        <div className="font-extrabold text-transparent text-xl bg-clip-text bg-gradient-to-r from-violet-600 to-pink-500">
+                        <div className="font-extrabold text-transparent text-xs lg:text-xl bg-clip-text bg-gradient-to-r from-violet-600 to-pink-500">
                             OAU PGSA
                         </div>
                     </div>
                 </Link>
 
-                <div className="hidden md:flex">
+                <div className="hidden lg:flex">
                     <NavigationMenu>
                         <NavigationMenuList>
                             {navigationItems.map((item) => (
@@ -115,9 +124,10 @@ const Header = () => {
                                                         href={link.href}
                                                         passHref
                                                         key={link.text}
+                                                        target={link.target ? link.target : "_self"}
                                                     >
                                                         <NavigationMenuLink
-                                                            className={`${navigationMenuTriggerStyle()} bg-transparent hover:bg-violet-300`}
+                                                            className={`${navigationMenuTriggerStyle()} bg-transparent hover:bg-violet-300 active:bg-violet-300 text-wrap`}
                                                         >
                                                             {link.text}
                                                         </NavigationMenuLink>
@@ -132,7 +142,7 @@ const Header = () => {
                                             passHref
                                         >
                                             <NavigationMenuLink
-                                                className={`${navigationMenuTriggerStyle()} bg-transparent hover:bg-violet-300`}
+                                                className={`${navigationMenuTriggerStyle()} bg-transparent hover:bg-violet-300 active:bg-violet-300 text-wrap`}
                                             >
                                                 {item.title}
                                             </NavigationMenuLink>
@@ -144,7 +154,7 @@ const Header = () => {
                     </NavigationMenu>
                 </div>
 
-                <div className="md:hidden h-5 w-5">
+                <div className="lg:hidden h-6 w-6">
                     <img src="/hamburger.png" onClick={toggleMenu} />
                 </div>
             </div>
@@ -152,30 +162,52 @@ const Header = () => {
             {isOpen && (
                 <div>
                     <NavigationMenu>
-                        <NavigationMenuList className="flex flex-col items-start">
+                        <NavigationMenuList className="flex flex-col items-start align-middle">
                             {navigationItems.map((item) => (
                                 <NavigationMenuItem key={item.title}>
                                     {item.links ? (
                                         <>
-                                            <NavigationMenuTrigger className="bg-transparent hover:bg-violet-300">
-                                                {item.title}
-                                            </NavigationMenuTrigger>
-                                            <NavigationMenuContent className="flex flex-col text-xs max-w-[85vw] overflow-auto">
-                                                {item.links.map((link) => (
-                                                    <Link
-                                                        href={link.href}
-                                                        passHref
-                                                        key={link.text}
-                                                    >
-                                                        <NavigationMenuLink
-                                                            className={`${navigationMenuTriggerStyle()} bg-transparent hover:bg-violet-300 text-wrap`}
-                                                            onClick={toggleMenu}
-                                                        >
-                                                            {link.text}
-                                                        </NavigationMenuLink>
-                                                    </Link>
-                                                ))}
-                                            </NavigationMenuContent>
+                                            <Accordion
+                                                type="single"
+                                                collapsible
+                                                className=""
+                                            >
+                                                <AccordionItem
+                                                    className="border-0"
+                                                    key={item.title}
+                                                    value={`${item.title}`}
+                                                >
+                                                    <AccordionTrigger className="text-sm hover:no-underline ps-4">
+                                                        {item.title}
+                                                    </AccordionTrigger>
+                                                    <AccordionContent className="flex flex-col gap-2 p-0">
+                                                        {item.links.map(
+                                                            (link) => (
+                                                                <Link
+                                                                    href={
+                                                                        link.href
+                                                                    }
+                                                                    passHref
+                                                                    key={
+                                                                        link.text
+                                                                    }
+                                                                >
+                                                                    <NavigationMenuLink
+                                                                        className={`${navigationMenuTriggerStyle()} bg-transparent hover:bg-violet-300 text-wrap`}
+                                                                        onClick={
+                                                                            toggleMenu
+                                                                        }
+                                                                    >
+                                                                        {
+                                                                            link.text
+                                                                        }
+                                                                    </NavigationMenuLink>
+                                                                </Link>
+                                                            )
+                                                        )}
+                                                    </AccordionContent>
+                                                </AccordionItem>
+                                            </Accordion>
                                         </>
                                     ) : (
                                         <Link

@@ -1,14 +1,13 @@
-import { text } from "stream/consumers";
 
 export const pageData = {
     heroAboutUs: [
         {
-            title: "Who we are",
+            title: "About Us",
             description:
                 "Welcome to our community of dedicated scholars at Obafemi Awolowo University. We are a collective committed to advancing academic excellence, fostering quality research, and promoting access to scholarships and grants. Leveraging the rich educational and cultural resources of our university, we aim to cultivate a socially responsible community dedicated to making a positive impact.",
         },
         {
-            title: "Statement of Purpose",
+            title: "Mission",
             description:
                 "Our association stands as a unified and purpose-driven body, committed to promoting academic excellence and the welfare of our members. We strive to harness the educational and cultural resources available at Obafemi Awolowo University, including scholarships, grants, and research funding, to foster the development of a responsible community. Through our collective efforts, we aim to make significant contributions to national and international committees of Postgraduate Students' Associations, advocating for justice and unity. Our ultimate goal is to uphold the spirit of oneness, progress, unity, and dignity, both within our fatherland and the global community.",
         },
