@@ -12,8 +12,8 @@ import {
 
 const Contact = () => {
     return (
-        <section className="font-medium space-y-4">
-            <Card>
+        <section className="font-medium space-y-4 relative z-50">
+            <Card className="bg-transparent">
                 <CardHeader>
                     <CardTitle className="font-extrabold text-transparent text-xl bg-clip-text bg-gradient-to-r from-violet-600 to-pink-400">
                         Contact Us
@@ -30,14 +30,16 @@ const Contact = () => {
                     <CardDescription>
                         <ul className="space-y-4">
                             <li>
-                                <strong>Phone Contact:</strong> +234 123 456 7890
+                                <strong>Phone Contact:</strong> +2348164031725
                             </li>
                             <li>
-                                <strong>Administrators:</strong> +234 123 456 7890
+                                <strong>Administrators:</strong> +2347038675918
                             </li>
                             <li>
-                                <strong>Speak with a postgraduate student:</strong>{" "}
-                                +234 123 456 7890
+                                <strong>
+                                    Speak with a postgraduate student:
+                                </strong>{" "}
+                                +2347038675918
                             </li>
                         </ul>
                     </CardDescription>

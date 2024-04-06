@@ -18,6 +18,7 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion";
 import { ModeToggle } from "./ui/toggle-theme";
+import { LuMenu } from "react-icons/lu";
 
 const navigationItems = [
     {
@@ -87,7 +88,7 @@ const Header = () => {
     };
 
     return (
-        <nav className="bg-background p-2 md:py-3 font-sans">
+        <nav className="bg-background p-2 md:py-3 font-san sticky top-0 z-50">
             <div className="md:container flex items-center justify-between">
                 <NavigationMenu>
                     <Link href="/" passHref>
@@ -122,7 +123,7 @@ const Header = () => {
                                 <NavigationMenuItem key={item.title}>
                                     {item.links ? (
                                         <>
-                                            <NavigationMenuTrigger className="bg-transparent hover:bg-violet-300">
+                                            <NavigationMenuTrigger className="bg-transparent neon-border">
                                                 {item.title}
                                             </NavigationMenuTrigger>
                                             <NavigationMenuContent className="flex flex-col w-[400px] gap-3 p-4 md:w-[500px] lg:w-[600px]">
@@ -138,7 +139,7 @@ const Header = () => {
                                                         }
                                                     >
                                                         <NavigationMenuLink
-                                                            className={`${navigationMenuTriggerStyle()} bg-transparent hover:bg-violet-300 active:bg-violet-300 text-wrap`}
+                                                            className={`${navigationMenuTriggerStyle()} bg-transparent neon-border text-wrap`}
                                                         >
                                                             {link.text}
                                                         </NavigationMenuLink>
@@ -153,7 +154,7 @@ const Header = () => {
                                             passHref
                                         >
                                             <NavigationMenuLink
-                                                className={`${navigationMenuTriggerStyle()} bg-transparent hover:bg-violet-300 active:bg-violet-300 text-wrap`}
+                                                className={`${navigationMenuTriggerStyle()} bg-transparent neon-border text-wrap`}
                                             >
                                                 {item.title}
                                             </NavigationMenuLink>
@@ -165,8 +166,8 @@ const Header = () => {
                     </NavigationMenu>
                 </div>
 
-                <div className="lg:hidden h-6 w-6">
-                    <img src="/hamburger.png" onClick={toggleMenu} />
+                <div className="lg:hidden" onClick={toggleMenu}>
+                    <LuMenu className="h-6 w-6" />
                 </div>
             </div>
 

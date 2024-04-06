@@ -62,7 +62,7 @@ const ContactUs = () => {
     }
 
     return (
-        <Card>
+        <Card className="bg-transparent">
             <CardHeader>
                 <CardTitle className="font-extrabold text-transparent text-xl bg-clip-text bg-gradient-to-r from-violet-600 to-pink-400">
                     Reach out to us today!

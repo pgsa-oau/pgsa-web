@@ -8,8 +8,8 @@ const Footer = () => {
     const year = new Date().getFullYear();
 
     return (
-        <Card className="md:container flex items-center justify-between py-10 text-primary z-10 border-0 shadow-none bg-transparent bg-none">
-            <div className="flex justify-between space-x-4">
+        <Card className="md:container flex flex-col gap-4 md:flex-row items-center align-middle justify-between py-10 text-primary z-10 border-0 shadow-none bg-transparent bg-none">
+            <div className="flex flex-col md:flex-row justify-between items-center align-middle gap-4">
                 <NavigationMenu className="neon-border">
                     <Link href="/#aboutUs" passHref>
                         About Us
@@ -18,6 +18,11 @@ const Footer = () => {
                 <NavigationMenu className="neon-border">
                     <Link href="/#aimsAndObjectives" passHref>
                         Aims and Objectives
+                    </Link>
+                </NavigationMenu>
+                <NavigationMenu className="neon-border">
+                    <Link href="/contact_us" passHref>
+                        Contact Us
                     </Link>
                 </NavigationMenu>
                 <NavigationMenu className="neon-border">
