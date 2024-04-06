@@ -17,6 +17,7 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion";
+import { ModeToggle } from "./ui/toggle-theme";
 
 const navigationItems = [
     {
@@ -88,25 +89,31 @@ const Header = () => {
     return (
         <nav className="bg-background p-2 md:py-3 font-sans">
             <div className="md:container flex items-center justify-between">
-                <Link href="/" passHref>
-                    <div className="flex gap-1 items-center justify-center">
-                        <div className="avatar hidden lg:flex">
-                            <div className="rounded-full w-6">
-                                <img src="/oau.png" />
+                <NavigationMenu>
+                    <Link href="/" passHref>
+                        <div className="flex gap-1 items-center justify-center">
+                            <div className="avatar hidden lg:flex">
+                                <div className="rounded-full w-6">
+                                    <img src="/oau.png" />
+                                </div>
+                            </div>
+
+                            <div className="avatar">
+                                <div className="rounded-full w-6">
+                                    <img src="/pgsa.png" />
+                                </div>
+                            </div>
+
+                            <div className="font-extrabold text-transparent text-xs lg:text-xl bg-clip-text bg-gradient-to-r from-violet-600 to-pink-500">
+                                OAU PGSA
                             </div>
                         </div>
+                    </Link>
+                </NavigationMenu>
 
-                        <div className="avatar">
-                            <div className="rounded-full w-6">
-                                <img src="/pgsa.png" />
-                            </div>
-                        </div>
-
-                        <div className="font-extrabold text-transparent text-xs lg:text-xl bg-clip-text bg-gradient-to-r from-violet-600 to-pink-500">
-                            OAU PGSA
-                        </div>
-                    </div>
-                </Link>
+                <NavigationMenu>
+                    <ModeToggle />
+                </NavigationMenu>
 
                 <div className="hidden lg:flex">
                     <NavigationMenu>
@@ -124,7 +131,11 @@ const Header = () => {
                                                         href={link.href}
                                                         passHref
                                                         key={link.text}
-                                                        target={link.target ? link.target : "_self"}
+                                                        target={
+                                                            link.target
+                                                                ? link.target
+                                                                : "_self"
+                                                        }
                                                     >
                                                         <NavigationMenuLink
                                                             className={`${navigationMenuTriggerStyle()} bg-transparent hover:bg-violet-300 active:bg-violet-300 text-wrap`}

@@ -4,6 +4,8 @@ import "./globals.css";
 
 import { cn } from "@/lib/utils";
 import Header from "@/components/Header";
+import { BackgroundBeams } from "@/components/ui/background-beams";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const fontSans = FontSans({
     subsets: ["latin"],
@@ -12,7 +14,7 @@ const fontSans = FontSans({
 
 
 export const metadata: Metadata = {
-  title: "PGSA Web",
+  title: "OAU PGSA",
   description: "Obafemi Awolowo University Postgraduate Students' Association",
 };
 
@@ -24,15 +26,23 @@ export default function RootLayout({
   return (
       <html lang="en" suppressHydrationWarning>
           <body>
-              <Header />
-              <div
-                  className={cn(
-                      "md:container p-1 min-h-screen font-sans antialiased",
-                      fontSans.variable
-                  )}
+              <ThemeProvider
+                  attribute="class"
+                  defaultTheme="system"
+                  enableSystem
+                  disableTransitionOnChange
               >
-                  {children}
-              </div>
+                  <Header />
+                  <div
+                      className={cn(
+                          "md:container p-1 min-h-screen font-sans antialiased z-10 bg-background",
+                          fontSans.variable
+                      )}
+                  >
+                      {children}
+                  </div>
+              </ThemeProvider>
+              <BackgroundBeams />
           </body>
       </html>
   );

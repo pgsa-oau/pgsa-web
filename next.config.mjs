@@ -5,8 +5,8 @@ const nextConfig = {
         domains: ["fakeimg.pl", "localhost", ],
     },
     reactStrictMode: true,
-    distDir: 'dist',
-    output: 'export',
+    // distDir: 'dist',
+    // output: 'export',
 };
 
 export default nextConfig;

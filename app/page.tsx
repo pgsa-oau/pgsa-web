@@ -16,7 +16,6 @@ export default function Home() {
                         description={item.description}
                     />
                 ))}
-
             </div>
 
             <section id="aimsAndObjectives" className="w-full">

@@ -1,43 +1,39 @@
 "use client";
 
 import * as React from "react";
-import Autoplay from "embla-carousel-autoplay";
-
-import { Card, CardContent } from "@/components/ui/card";
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-} from "@/components/ui/carousel";
-import { useRef } from "react";
+import { motion } from "framer-motion";
+import { ImagesSlider } from "@/components/ui/image-slider";
 
 const CarouselSection = () => {
-    const plugin = useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
+    const images = [
+        "/images/image1.jpg",
+        "/images/image2.jpg",
+        "/images/image3.jpg",
+        "/images/image4.jpg",
+        "/images/image5.jpg",
+    ];
 
     return (
-        <div className="md:container md:mx-5">
-            <Carousel plugins={[plugin.current]}>
-                <CarouselContent>
-                    {Array.from({ length: 5 }).map((_, index) => (
-                        <CarouselItem key={index}>
-                            <div className="p-2">
-                                <Card className="h-[15rem] md:h-[32rem] w-full flex items-center justify-center">
-                                    <img
-                                        src={`/images/image${index + 1}.jpg`}
-                                        alt={`image${index + 1}`}
-                                        className="w-full h-full object-cover rounded-md"
-                                    />
-                                </Card>
-                            </div>
-                        </CarouselItem>
-                    ))}
-                </CarouselContent>
-                <CarouselPrevious className="hidden md:flex" />
-                <CarouselNext className="hidden md:flex" />
-            </Carousel>
-        </div>
+        <ImagesSlider className="h-[40rem]" images={images}>
+            <motion.div
+                initial={{
+                    opacity: 0,
+                    y: -80,
+                }}
+                animate={{
+                    opacity: 1,
+                    y: 0,
+                }}
+                transition={{
+                    duration: 0.6,
+                }}
+                className="z-50 flex flex-col justify-center items-center"
+            >
+                <motion.p className="font-bold text-xl md:text-3xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-600 py-4">
+                    The Postgraduate Students&apos; Association
+                </motion.p>
+            </motion.div>
+        </ImagesSlider>
     );
 };
 

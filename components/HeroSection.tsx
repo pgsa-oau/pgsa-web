@@ -7,6 +7,7 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
+import { TextGenerateEffect } from "./ui/text-generate-effect";
 
 interface HeroSectionProps {
     title: string;
@@ -20,14 +21,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     buttonText,
 }) => {
     return (
-        <Card className="shadow-lg md:w-1/2 text-pretty md:text-base md:font-medium md:leading-normal md:hover:scale-105">
+        <Card className="shadow-lg bg-none bg-transparent md:w-1/2 text-pretty md:text-base md:font-medium md:leading-normal md:hover:scale-105">
             <CardHeader>
-                <CardTitle className="font-extrabold text-transparent text-xl bg-clip-text bg-gradient-to-r from-violet-600 to-pink-400">
+                <CardTitle className="font-extrabold text-xl gradient-text">
                     {title}
                 </CardTitle>
             </CardHeader>
             <CardContent>
-                <CardDescription>{description}</CardDescription>
+                <TextGenerateEffect words={description} />
             </CardContent>
             {buttonText && <Button>{buttonText}</Button>}
         </Card>
