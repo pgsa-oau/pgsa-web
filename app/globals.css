@@ -65,6 +65,28 @@
     color: transparent;
   }
 
+@keyframes neonFlash {
+  0% {
+    border-bottom: 2px solid transparent;
+  }
+  50% {
+    border-bottom: 2px solid #0cd808;
+  }
+  100% {
+    border-bottom: 2px solid transparent;
+  }
+}
+
+.neon-border {
+  border: 2px solid transparent;
+}
+
+.neon-border:hover {
+  animation: neonFlash 1s infinite;
+}
+
+
+
 html {
   scroll-behavior: smooth;
 }

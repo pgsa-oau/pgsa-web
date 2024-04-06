@@ -1,5 +1,6 @@
 import AimsAndObjectives from "@/components/AimsAndObjectives";
 import CarouselSection from "@/components/Carousel";
+import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import { pageData } from "@/components/pageData";
 
@@ -21,12 +22,6 @@ export default function Home() {
             <section id="aimsAndObjectives" className="w-full">
               <AimsAndObjectives />
             </section>
-
-
-
-            <footer className="flex items-center justify-center w-full h-16 border-t font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-700 to-gray-300">
-                © {new Date().getFullYear()} OAU PGSA
-            </footer>
         </main>
     );
 }
