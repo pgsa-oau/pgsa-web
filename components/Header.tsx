@@ -88,7 +88,7 @@ const Header = () => {
     };
 
     return (
-        <nav className="bg-background p-2 md:py-3 font-san sticky top-0 z-50">
+        <nav className="bg-background p-2 md:py-3 font-san sticky top-0 z-[1000]">
             <div className="md:container flex items-center justify-between">
                 <NavigationMenu>
                     <Link href="/" passHref>
