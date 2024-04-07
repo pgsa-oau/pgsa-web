@@ -28,7 +28,7 @@ export const HoverEffect = ({
         >
             {items.map((item, idx) => (
                 <Link
-                    href={item?.link}
+                    href={item.link || '/'}
                     key={item?.link}
                     target="_blank"
                     className="relative group  block p-2 h-full w-full"
