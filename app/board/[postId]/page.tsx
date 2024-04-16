@@ -1,4 +1,5 @@
-"use client";
+// "use client";
+
 import React from "react";
 import { Poppins as FontSans } from "next/font/google";
 import Image from "next/image";
@@ -11,7 +12,10 @@ const fontSans = FontSans({
     weight: "400"
 });
 
-const PostDetails = () => {
+
+const Page = async ({ params }: { params: { postId: string } }) => {
+    const postData = await fetchPost(params.postId);
+    console.log(postData);
     return (
         <TracingBeam className="px-6 relative z-40">
             <div className="max-w-2xl mx-auto antialiased pt-4 relative">
@@ -47,9 +51,8 @@ const PostDetails = () => {
             </div>
         </TracingBeam>
     );
-}
-
-export default PostDetails;
+};
+export default Page;
 
 const dummyContent = [
     {
@@ -133,3 +136,23 @@ const dummyContent = [
         image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&q=80&w=3506&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
 ];
+
+export async function generateStaticParams() {
+    const res = await fetch(
+        "https://dummyjson.com/posts?limit=3"
+    );
+    const data = await res.json();
+
+    return data.posts.map((post: any) => ({
+        postId: post.id.toString(),
+    }));
+}
+
+async function fetchPost(postId: string) {
+    const res = await fetch(
+        `https://dummyjson.com/posts/${postId}`
+    );
+    const data = await res.json();
+
+    return data;
+}
