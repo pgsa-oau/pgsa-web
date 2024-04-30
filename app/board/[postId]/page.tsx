@@ -1,24 +1,23 @@
+/* eslint-disable @next/next/no-img-element */
 // "use client";
 
 import React from "react";
 import { Poppins as FontSans } from "next/font/google";
-import Image from "next/image";
 import { twMerge } from "tailwind-merge";
 import { TracingBeam } from "@/components/ui/tracing-beam";
 
 const fontSans = FontSans({
     subsets: ["latin"],
     variable: "--font-sans",
-    weight: "400"
+    weight: "400",
 });
-
 
 const Page = async ({ params }: { params: { postId: string } }) => {
     const postData = await fetchPost(params.postId);
     console.log(postData);
     return (
         <TracingBeam className="px-6 relative z-40">
-            <div className="max-w-2xl mx-auto antialiased pt-4 relative">
+            <div className="max-w-2xl mx-auto antialiased pt-4 relative z-50">
                 {dummyContent.map((item, index) => (
                     <div key={`content-${index}`} className="mb-10">
                         <h2 className="rounded-full text-sm w-fit px-4 py-1 mb-4">
@@ -36,7 +35,7 @@ const Page = async ({ params }: { params: { postId: string } }) => {
 
                         <div className="text-sm  prose prose-sm dark:prose-invert">
                             {item?.image && (
-                                <Image
+                                <img
                                     src={item.image}
                                     alt="blog thumbnail"
                                     height="1000"
@@ -138,9 +137,7 @@ const dummyContent = [
 ];
 
 export async function generateStaticParams() {
-    const res = await fetch(
-        "https://dummyjson.com/posts?limit=3"
-    );
+    const res = await fetch("https://dummyjson.com/posts?limit=3");
     const data = await res.json();
 
     return data.posts.map((post: any) => ({
@@ -149,9 +146,7 @@ export async function generateStaticParams() {
 }
 
 async function fetchPost(postId: string) {
-    const res = await fetch(
-        `https://dummyjson.com/posts/${postId}`
-    );
+    const res = await fetch(`https://dummyjson.com/posts/${postId}`);
     const data = await res.json();
 
     return data;
