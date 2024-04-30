@@ -14,12 +14,14 @@ import {
 } from "@/components/ui/card";
 
 import { pageData } from "./pageData";
+import { BackgroundGradient } from "./ui/background-gradient";
 
 const AimsAndObjectives = () => {
     return (
-        <Card className="shadow-lg md:font-medium">
+        <BackgroundGradient>
+            <Card className="shadow-lg md:font-medium bg-none">
             <CardHeader>
-                <CardTitle className="font-extrabold text-transparent text-xl bg-clip-text bg-gradient-to-r from-violet-600 to-pink-400">
+                <CardTitle className="font-extrabold text-xl gradient-text">
                     Vision
                 </CardTitle>
             </CardHeader>
@@ -35,10 +37,12 @@ const AimsAndObjectives = () => {
                             key={aim.id}
                             value={`${aim.id}`}
                         >
-                            <AccordionTrigger className="text-left hover:no-underline text-sm font-medium text-slate-700">
+                            <AccordionTrigger className="text-left hover:no-underline text-sm font-medium">
                                 {aim.description}
                             </AccordionTrigger>
-                            <AccordionContent className="text-sm text-slate-500">{aim.text}</AccordionContent>
+                            <AccordionContent className="text-sm">
+                                {aim.text}
+                            </AccordionContent>
                         </AccordionItem>
                     ))}
                 </Accordion>
@@ -48,6 +52,8 @@ const AimsAndObjectives = () => {
                 </CardDescription>
             </CardContent>
         </Card>
+        </BackgroundGradient>
+
     );
 };
 
