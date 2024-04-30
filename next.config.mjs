@@ -5,8 +5,8 @@ const nextConfig = {
         domains: ["fakeimg.pl", "localhost", "images.unsplash.com"],
     },
     reactStrictMode: true,
-    distDir: 'dist',
-    output: 'export',
+    // distDir: 'dist',
+    // output: 'export',
 };
 
 export default nextConfig;
