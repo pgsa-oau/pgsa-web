@@ -1,4 +1,5 @@
-import React from "react";
+import Link from "next/link";
+import React, { use } from "react";
 
 interface NewsCardProps {
     title: string;
@@ -24,7 +25,7 @@ const NewsCard = ({
     });
 
     return (
-        <div className="bg-white overflow-hidden border-b-4 border-purple-500 w-2/5 rounded-lg shadow-lg hover:shadow-2xl hover:border-purple-700 transition-shadow duration-300 ease-in-out">
+        <div className="bg-white overflow-hidden border-b-4 border-purple-500 w-full rounded-lg shadow-sm hover:shadow-xl hover:border-purple-700 transition-shadow duration-300 ease-in-out">
             <img
                 src={thumbnail}
                 alt={title}
