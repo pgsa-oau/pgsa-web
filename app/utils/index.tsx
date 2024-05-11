@@ -34,5 +34,28 @@ export async function fetchNews() {
     });
 
     return newsData
+};
+
+export async function fetchNewsDetails(postId: string) {
+    const storyblokApi = getStoryblokApi();
+    const data = storyblokApi.get("cdn/stories/news/" + postId, {
+        version: "published",
+    }, {cache: "no-cache"});
+
+    const postData = (await data).data.story;
+
+    return {
+        id: postData.slug,
+        name: postData.name,
+        slug: postData.slug,
+        published_at: postData.first_published_at,
+        title: postData.content.title,
+        thumbnail: postData.content.thumbnail,
+        author: postData.content.author,
+        summary: postData.content.summary,
+        content: postData.content.content,
+        tag: postData.content.tag,
+    };
 }
+
 

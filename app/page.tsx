@@ -29,7 +29,6 @@ export default async function Home() {
                         >
                             <NewsCard key={post.id} {...post} />
                         </Link>
-                        // <div dangerouslySetInnerHTML={{ __html: sanitizeContent(post.content) }}>
                     ))}
                 </div>
             </div>
