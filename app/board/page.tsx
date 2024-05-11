@@ -7,8 +7,12 @@ import {
 } from "@/components/ui/card";
 import Link from "next/link";
 import React from "react";
+import { fetchNews } from "../utils";
+import NewsCard from "@/components/ui/NewsCard";
+import { post } from "@/app/types";
 
-const NoticeBoard = () => {
+const NoticeBoard = async () => {
+        const news = await fetchNews();
     return (
         <div className="space-y-5 relative z-50">
             <section className="font-medium space-y-4">
@@ -26,20 +30,17 @@ const NoticeBoard = () => {
                             the latest updates.
                         </CardDescription>
 
-                        {dummyData.map((data) => (
-                            <Link key={data.id} href={`/board/${data.id}`}>
-                                <CardDescription className="p-4 rounded-lg shadow-xl dark:border-2 hover:border-emerald-300">
-                                    <div className="flex flex-wrap justify-between items-center italic mb-4">
-                                        <h3 className="font-bold">
-                                            {data.author}
-                                        </h3>
-                                        <p className="text-xs">{data.date}</p>
-                                    </div>
-
-                                    <p className="text-sm">{data.summary}</p>
-                                </CardDescription>
-                            </Link>
-                        ))}
+                        <div className="flex flex-col md:flex-row md:flex-wrap gap-4">
+                            {news.map((post: post) => (
+                                <Link
+                                    key={post.id}
+                                    href={`/board/${post.slug}`}
+                                    className="w-full md:w-[30%]"
+                                >
+                                    <NewsCard key={post.id} {...post} />
+                                </Link>
+                            ))}
+                        </div>
                     </CardContent>
                 </Card>
             </section>

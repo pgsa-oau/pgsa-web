@@ -14,7 +14,7 @@ const CarouselSection = () => {
     ];
 
     return (
-        <ImagesSlider className="md:h-[40rem] h-[20rem]" images={images}>
+        <ImagesSlider className="md:h-[40rem] h-[20rem] z-50" images={images}>
             <motion.div
                 initial={{
                     opacity: 0,

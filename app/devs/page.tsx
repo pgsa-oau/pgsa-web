@@ -17,7 +17,7 @@ export default DevsPage;
 const team = [
     {
         title: "Taofiq Sulayman",
-        description: "Frontend Engineer || Team Lead",
+        description: "Software Engineer || Team Lead",
         link: "https://www.linkedin.com/in/taofiq-sulayman/",
         imageUrl: `https://robohash.org/${Math.floor(Math.random() * 10)}`,
     },
@@ -27,10 +27,10 @@ const team = [
         link: "https://www.linkedin.com/in/igbalaoluwa-rowaiye/",
         imageUrl: `https://robohash.org/${Math.floor(Math.random() * 10)}`,
     },
-    {
-        title: "Oluwaseun Abolade",
-        description: "Frontend Engineer",
-        link: "https://www.linkedin.com/in/oluwaseun-abolade/",
-        imageUrl: `https://robohash.org/${Math.floor(Math.random() * 10)}`,
-    },
+    // {
+    //     title: "Oluwaseun Abolade",
+    //     description: "Frontend Engineer",
+    //     link: "https://www.linkedin.com/in/oluwaseun-abolade/",
+    //     imageUrl: `https://robohash.org/${Math.floor(Math.random() * 10)}`,
+    // },
 ];
