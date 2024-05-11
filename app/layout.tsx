@@ -8,6 +8,13 @@ import { BackgroundBeams } from "@/components/ui/background-beams";
 import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "@/components/Footer";
 
+import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
+
+storyblokInit({
+    accessToken: "QM4p9Ut8JLy29QMTmvM2jwtt",
+    use: [apiPlugin],
+});
+
 const fontSans = FontSans({
     subsets: ["latin"],
     variable: "--font-sans",
