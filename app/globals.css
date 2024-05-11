@@ -85,6 +85,22 @@
   animation: neonFlash 1s infinite;
 }
 
+.post-content {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+
+  h1, h2, h3, p, a, img {
+    @apply py-2
+  }
+  a {
+    @apply text-primary;
+    @apply hover:text-cyan-400;
+    cursor: pointer;
+    color: darkviolet;
+  }
+}
+
 
 
 html {

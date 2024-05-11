@@ -32,7 +32,7 @@ const Page = async ({ params }: { params: { postId: string } }) => {
                             alt={newsData.title}
                             className="rounded-lg mb-10 object-cover"
                         />
-                        <div dangerouslySetInnerHTML={{ __html: sanitizeContent(newsData.content) }}></div>
+                        <div className="post-content" dangerouslySetInnerHTML={{ __html: sanitizeContent(newsData.content) }}></div>
                     </div>
                 </div>
             </div>

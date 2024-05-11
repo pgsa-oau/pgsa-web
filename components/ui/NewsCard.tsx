@@ -31,7 +31,7 @@ const NewsCard = ({
                 alt={title}
                 className="w-full object-cover h-32 sm:h-48 md:h-64"
             />
-            <div className="p-4 md:p-6">
+            <div className="p-4 md:p-6 text-gray-900">
                 <div>
                     <p className="text-purple-500 font-semibold text-xs mb-1 leading-none">
                         {tag}
@@ -39,7 +39,7 @@ const NewsCard = ({
                     <h3 className="font-semibold mb-2 text-lg leading-tight sm:leading-normal">
                         {title}
                     </h3>
-                    <p className="text-sm text-gray-600 leading-none mb-2 overflow-hidden overflow-ellipsis whitespace-nowrap">
+                    <p className="text-sm leading-none mb-2 overflow-hidden overflow-ellipsis whitespace-nowrap">
                         {summary}
                     </p>
                 </div>
